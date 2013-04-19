@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe List do
-  it "should have tasks" do
+  it "should have a task" do
     l = List.create({ :name => "First" })
     t = Task.create({:description => 'Dig a hole' })
     l.tasks << t
