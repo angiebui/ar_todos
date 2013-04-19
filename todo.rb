@@ -2,7 +2,6 @@ require_relative 'config/application'
 
 # puts "Put your application code in #{File.expand_path(__FILE__)}"
 
-
 def main(command,options)
   TaskController.new(command,options)
 end
