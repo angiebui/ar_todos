@@ -44,8 +44,10 @@ class TaskController
   def add_task
     list_number = self.view.choose_list
     list = find_list(list_number)
-    list.tasks << Task.create({:description => self.option})
-    self.view.add_task(task, list_number)
+    p list
+    p list.task_lists
+    # list.task << Task.create({:description => self.option})
+    # self.view.add_task(task, list_number)
   end
 
   def delete_task
@@ -54,6 +56,7 @@ class TaskController
     list = find_list(list_number)
     p list.tasks
     list.tasks.delete(task)
+    list.reindex!
     p list.tasks
     self.view.delete_task(task)
   end
