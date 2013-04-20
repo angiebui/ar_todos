@@ -26,3 +26,9 @@ def seed_relationships
   end
 end
 seed_relationships
+
+def seed_positions
+  all_lists = List.all
+  all_lists.each{|l| l.task_lists.reindex! }
+end
+seed_positions

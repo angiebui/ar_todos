@@ -4,7 +4,7 @@ class TaskView
   end
 
   def display_list(list)
-    puts list.tasks
+    list.tasks.each_with_index{ |t, i| puts "#{i+1} #{t}"}
   end
 
   def add_task(task, list_number)
@@ -26,5 +26,13 @@ class TaskView
     list_number = STDIN.gets.chomp.to_i
   end
 
+  def get_position
+    puts "Which position would you like to insert this task?"
+    STDIN.gets.chomp.to_i
+  end
 
+  def get_task_in_list
+    puts "Which position in this list would you like to change?"
+    STDIN.gets.chomp.to_i
+  end
 end

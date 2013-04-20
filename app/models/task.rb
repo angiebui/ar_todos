@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 
   def complete!
     self.completed = true
+    self.save
   end
 
   def completed_display
@@ -12,6 +13,6 @@ class Task < ActiveRecord::Base
   end
 
   def to_s
-    "#{id}: #{completed_display} #{description}"
+    "#{completed_display} #{description}"
   end
 end
