@@ -1,6 +1,5 @@
 require 'faker'
 
-
 def seed_tasks(number)
   number.times do
     Task.create({:description => Faker::Lorem.sentence})
@@ -27,8 +26,3 @@ def seed_relationships
 end
 seed_relationships
 
-def seed_positions
-  all_lists = List.all
-  all_lists.each{|l| l.task_lists.reindex! }
-end
-seed_positions

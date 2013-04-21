@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
-  has_many :lists, :through => :task_lists
-  has_many :task_lists
+
+  has_many :lists, :through => :list_tasks 
+  has_many :list_tasks
 
   def complete!
     self.completed = true
@@ -8,11 +9,11 @@ class Task < ActiveRecord::Base
   end
 
   def completed_display
-    return "[ ]" unless completed
-    "[X]"
+    self.completed ? "[X]" : "[ ]"
   end
 
   def to_s
-    "#{completed_display} #{description}"
+    "#{id} #{completed_display} #{description}"
   end
+  
 end
